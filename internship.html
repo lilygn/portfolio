@@ -57,9 +57,8 @@
           <div class="proj-tags"><span>React Native</span><span>Firebase</span><span>OpenAI</span><span>Web Scraping</span></div>
         </div>
         <div class="proj-actions" style="--z:52px">
-          <a class="btn-ghost" href="https://github.com/lilygn/iSwipe" target="_blank" rel="noopener">Repo</a>
-          <a class="btn-ghost" href="case-studies/Future.html">Case Study</a>
-          <button class="btn-accent" data-demo='{"type":"video","src":"videos/Future.mp4"}'>Watch Demo</button>
+          <a class="btn-accent" href="https://github.com/lilygn/iSwipe" target="_blank" rel="noopener">Repo</a>
+         
         </div>
       </article>
   
@@ -80,9 +79,8 @@
           <div class="proj-tags"><span>Chrome Extension</span><span>LangChain</span><span>OpenAI API</span></div>
         </div>
         <div class="proj-actions" style="--z:52px">
-          <a class="btn-ghost" href="https://github.com/lilygn/youtube-learning-overlay/tree/main" target="_blank" rel="noopener">Repo</a>
-          <a class="btn-ghost" href="https://chromewebstore.google.com/detail/youtube-learning-overlay/jkmlllelhaoggehihgcefjhmdikiegne?pli=1">Link to ChromeStore</a>
-          <button class="btn-accent" data-demo='{"type":"iframe","src":"https://streamlit.app/your-app"}'>Live Demo</button>
+          <a class="btn-accent" href="https://github.com/lilygn/youtube-learning-overlay/tree/main" target="_blank" rel="noopener">Repo</a>
+          <a class="btn-accent" href="https://chromewebstore.google.com/detail/youtube-learning-overlay/jkmlllelhaoggehihgcefjhmdikiegne?pli=1">Link to ChromeStore</a>
         </div>
       </article>
     </div>
@@ -125,7 +123,7 @@
           <h4>Maintenance Chatbot</h4>
           <p> Developed an internal chatbot that processes over 1,500 technical PDFs–including 400+ page manuals and engineering drawings–to assist the maintenance team, reduce downtime, and link directly to exact pages in source documents. </p>
           <div class="sub-actions">
-            <button class="btn-accent" data-demo='{"type":"video","src":"videos/cropped_chatbot.mp4"}'>Watch Demo</button>
+            <button class="btn-accent" data-demo='{"type":"iframe","src":"https://youtu.be/ehJdhvyhWpI"}'>Watch Demo</button>
           </div>
         </article>
 
@@ -133,7 +131,7 @@
           <h4>Microsoft Teams Bot</h4>
           <p>Created a Microsoft Teams bot that makes SQL queries and outputs PowerBi Dashboards</p>
           <div class="sub-actions">
-            <button class="btn-accent" data-demo='{"type":"video","src":"videos/teams_bot.mp4"}'>Watch Demo</button>
+            <button class="btn-accent" data-demo='{"type":"iframe","src":"https://youtu.be/AZUc2Tw5Vng"}'>Watch Demo</button>
           </div>
         </article>
 
@@ -141,14 +139,14 @@
           <h4>Data Entry Application</h4>
           <p>Implemented a full-stack application for data entry for Autopour and Melting machines. </p>
           <div class="sub-actions">
-            <button class="btn-accent" data-demo='{"type":"video","src":"videos/demo.mp4"}'>Watch Demo</button>
+            <!-- fixed JSON: removed stray } -->
+            <button class="btn-accent" data-demo='{"type":"iframe","src":"https://www.youtube.com/embed/GAJCekwzLrQ"}'>Watch Demo</button>
           </div>
         </article>
 
         <article class="subcard">
           <h4>Downtime Dashboard</h4>
           <p>Created a Downtime dashboard to visualize downtime across machines, enabling filtering by machine and date. </p>
-
         </article>
       </div>
     </article>
@@ -195,24 +193,20 @@
         <article class="subcard">
           <h4>Agent Benchmark Harness</h4>
           <p>Tool-calling tasks with post-tool hooks; Prometheus/Jaeger metrics and traces.</p>
-          
         </article>
     
         <article class="subcard">
           <h4>Mission Control UI</h4>
           <p>Kubernetes & Docker–based orbital simulation app, fault injection, holographic controls.</p>
-         
         </article>
       </div>
     </article>
-    
-    
-    
   </div>
 </section>
 
 
 <script>
+  // tilt effect
   document.querySelectorAll('[data-tilt]').forEach(card => {
     const media = card.querySelector('.proj-media');
     const glare = card.querySelector('.glare');
@@ -235,25 +229,44 @@
     card.addEventListener('pointerleave', onLeave);
   });
 
+  // modal demo logic
   const modal=document.getElementById('demo-modal');
   const content=modal.querySelector('.demo-content');
   modal.querySelector('.close').addEventListener('click', closeDemo);
   document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeDemo(); });
   document.addEventListener('click', e=>{
     const btn=e.target.closest('[data-demo]');
-    if(btn){ try{ openDemo(JSON.parse(btn.dataset.demo)); }catch{} }
+    if(btn){ try{ openDemo(JSON.parse(btn.dataset.demo)); }catch(err){ console.error(err); } }
     if(e.target===modal) closeDemo();
   });
+
   function openDemo(cfg){
     content.innerHTML='';
-    if(cfg.type==='video'){ const v=document.createElement('video'); v.src=cfg.src; v.controls=true; v.autoplay=true; v.playsInline=true; content.appendChild(v); }
-    else { const f=document.createElement('iframe'); f.src=cfg.src; f.loading='lazy'; f.referrerPolicy='no-referrer';
-           f.allow='clipboard-write; fullscreen; microphone; camera; geolocation'; content.appendChild(f); }
+    if(cfg.type==='video'){
+      const v=document.createElement('video');
+      v.src=cfg.src; v.controls=true; v.autoplay=true; v.playsInline=true;
+      content.appendChild(v);
+    } else {
+      const f=document.createElement('iframe');
+      // handle YouTube shortlinks
+      let src = cfg.src;
+      if(src.includes('youtu.be')){
+        const id=src.split('/').pop();
+        src=`https://www.youtube.com/embed/${id}`;
+      }
+      f.src=src;
+      f.loading='lazy'; f.referrerPolicy='no-referrer';
+      f.allow='clipboard-write; fullscreen; microphone; camera; geolocation';
+      content.appendChild(f);
+    }
     modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
   }
-  function closeDemo(){ modal.setAttribute('aria-hidden','true'); content.innerHTML=''; document.body.style.overflow=''; }
-  
 
+  function closeDemo(){
+    modal.setAttribute('aria-hidden','true');
+    content.innerHTML='';
+    document.body.style.overflow='';
+  }
 </script>
 </body>
 </html>
