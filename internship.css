@@ -1,0 +1,199 @@
+/* ===== Lily — Projects (Futuristic Q-Lab) ===== */
+:root{
+  --bg:#0b1022; --text:#e9ecff; --muted:#9ba6c7; --accent:#7C5CFF; --glass:rgba(18,24,48,.72);
+}
+
+/* Global */
+html,body{margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+
+/* Space ambiance */
+.section.space-wrap{max-width:1150px;margin:0 auto;padding:2rem 1rem 3rem;position:relative}
+.section.space-wrap::before{
+  content:"";position:absolute;inset:-12vh -20vw;z-index:-2;
+  background:
+    radial-gradient(900px 900px at 10% -10%, rgba(124,92,255,.18), transparent 60%),
+    radial-gradient(700px 700px at 88% 0%, rgba(0,208,255,.12), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.06), transparent 20%), var(--bg);
+}
+.section.space-wrap::after{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.35;pointer-events:none;
+  background:
+    radial-gradient(1px 1px at 10% 20%, #fff, transparent 60%),
+    radial-gradient(1px 1px at 30% 80%, #fff, transparent 60%),
+    radial-gradient(1px 1px at 60% 10%, #fff, transparent 60%),
+    radial-gradient(1px 1px at 80% 60%, #fff, transparent 60%),
+    radial-gradient(1px 1px at 50% 50%, #fff, transparent 60%);
+  animation:twinkle 6s ease-in-out infinite alternate;
+}
+@keyframes twinkle{from{opacity:.2}to{opacity:.45}}
+
+.neon-title{
+  font-family:"Orbitron",system-ui,sans-serif;
+  font-size:clamp(1.6rem,3.3vw,2.6rem);
+  text-align:center;margin:0 0 .25rem;
+  text-shadow:0 0 18px color-mix(in oklab,var(--accent),transparent 55%);
+}
+.projects-head .muted{text-align:center;color:var(--muted);margin:0 0 1rem}
+
+/* Grid */
+.projects-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+
+/* Cards */
+.proj-card.qcard{
+  position:relative;border-radius:20px;overflow:clip;
+  background:linear-gradient(180deg,var(--glass),rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 22px 60px rgba(0,0,0,.45);
+  transform-style:preserve-3d;
+  transition:box-shadow .2s ease,border-color .2s ease,transform .2s ease;
+}
+.proj-card.qcard:hover{
+  border-color:color-mix(in oklab,var(--accent),transparent 45%);
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+}
+
+/* Z-depth utility */
+.depth-0 { --z: 0 }
+.depth-24{ --z: 24px }
+.depth-40{ --z: 40px }
+.depth-52{ --z: 52px }
+.proj-card.qcard > *{ transform:translateZ(var(--z,0)); will-change:transform }
+
+/* Media banner */
+.proj-media{
+  position:relative;
+  aspect-ratio:16/9;
+  background:#0e1430;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  --z:0 !important; /* logos flat, no parallax skew */
+}
+
+/* >>> Image-fit FIX (no cropping, centered) <<< */
+.proj-media > img{
+  display:block;
+  width:100%; height:auto;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center;
+  padding:10px;
+  filter:saturate(1.05) contrast(1.05);
+  transition:transform .6s ease;
+}
+.qcard:hover .proj-media > img{ transform:scale(1.02) }
+
+/* Optional: use .img-cover for full-bleed images */
+.proj-media > img.img-cover{
+  width:100%; height:100%;
+  object-fit:cover; padding:0;
+}
+
+/* Halo / grid / scan / brackets / glare */
+.halo{position:absolute;left:-20%;right:-20%;bottom:-25%;height:46%;
+  background:radial-gradient(60% 120% at 50% 100%, rgba(124,92,255,.35), transparent 70%);
+  filter:blur(22px);pointer-events:none}
+.grid{position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:screen;
+  background:
+    linear-gradient(transparent 95%, rgba(124,92,255,.18) 96%),
+    linear-gradient(90deg, transparent 95%, rgba(124,92,255,.18) 96%);
+  background-size:36px 36px}
+.scan{position:absolute;inset:0;pointer-events:none;opacity:.22;
+  background:linear-gradient(180deg,transparent 0%,rgba(255,255,255,.09) 50%,transparent 100%);
+  transform:translateY(-100%);animation:scan 6s linear infinite}
+@keyframes scan{to{transform:translateY(100%)}}
+.br{position:absolute;width:26px;height:26px;border:2px solid color-mix(in oklab,var(--accent),white 10%);
+  filter:drop-shadow(0 0 10px rgba(124,92,255,.35))}
+.br.tl{top:10px;left:10px;border-right:0;border-bottom:0;border-radius:8px 0 0 0}
+.br.tr{top:10px;right:10px;border-left:0;border-bottom:0;border-radius:0 8px 0 0}
+.br.bl{bottom:10px;left:10px;border-right:0;border-top:0;border-radius:0 0 0 8px}
+.br.brc{bottom:10px;right:10px;border-left:0;border-top:0;border-radius:0 0 8px 0}
+.glare{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .2s ease;
+  background:radial-gradient(320px 240px at var(--mx,50%) var(--my,50%), rgba(255,255,255,.28), rgba(255,255,255,.06) 35%, transparent 60%)}
+.qcard:hover .glare{opacity:.9}
+
+/* Body */
+.proj-body{padding:.9rem .95rem .2rem;color:var(--text)}
+.proj-title{margin:0 0 .25rem;font-family:"Orbitron",system-ui,sans-serif;font-size:1.06rem;letter-spacing:.02em;
+  text-shadow:0 0 14px color-mix(in oklab,var(--accent),transparent 70%)}
+.proj-desc{margin:0 0 .55rem;opacity:.95}
+.proj-tags{display:flex;gap:.35rem;flex-wrap:wrap}
+.proj-tags span{font-size:.72rem;color:var(--text);border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);
+  border-radius:999px;padding:.18rem .5rem}
+
+/* Actions */
+.proj-actions{padding:.75rem .95rem 1rem;display:flex;gap:.5rem;flex-wrap:wrap}
+.btn-ghost,.btn-accent,.proj-actions a{
+  text-decoration:none;cursor:pointer;user-select:none;color:var(--text);
+  border-radius:.65rem;padding:.5rem .8rem;line-height:1;
+  border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);
+  transition:transform .14s ease,background .14s ease,border-color .14s ease,box-shadow .14s ease}
+.btn-ghost:hover{background:rgba(255,255,255,.10);transform:translateY(-1px)}
+.btn-accent{border-color:color-mix(in oklab,var(--accent),transparent 50%);
+  background:radial-gradient(120% 120% at 50% 0%, rgba(124,92,255,.18), rgba(255,255,255,.05));
+  box-shadow:inset 0 0 18px rgba(124,92,255,.45), 0 6px 18px rgba(0,0,0,.35)}
+.btn-accent:hover{background:color-mix(in oklab,var(--accent),white 12%);transform:translateY(-1px)}
+
+/* Modal */
+.demo-modal{position:fixed;inset:0;display:none;background:rgba(4,6,16,.65);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:9999}
+.demo-modal[aria-hidden="false"]{display:block}
+.demo-sheet{position:absolute;inset:6% 10%;display:flex;flex-direction:column;gap:.75rem;
+  background:linear-gradient(180deg, rgba(18,24,48,.92), rgba(255,255,255,.05));
+  border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:.75rem;box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.demo-sheet .close{align-self:flex-end;width:38px;height:38px;border-radius:.65rem; 
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:var(--text)}
+.demo-content{flex:1;min-height:220px;border-radius:.65rem;overflow:hidden}
+.demo-content iframe,.demo-content video{width:100%;height:100%;display:block;background:#0b1022}
+
+/* Responsive / motion */
+@media (max-width:720px){.demo-sheet{inset:6% 4%}}
+@media (prefers-reduced-motion:reduce){.scan{animation:none}.proj-card.qcard,.proj-media img{transition:none}}
+
+/* Hide broken images */
+.proj-media img:where([src=""],[src=" "]), .proj-media img:not([src]){display:none}
+/* ---- Fix: tag chips overlapping the "See My Work" button ---- */
+.qcard .proj-body{
+  display: grid;
+  grid-auto-rows: min-content;
+  gap: 10px;            /* space between title/desc/tags/ctas */
+  align-content: start;
+}
+
+/* Make tags a normal row that wraps */
+.qcard .proj-tags{
+  position: static !important;   /* kill any absolute positioning */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 2px;
+}
+.qcard .proj-tags > span{
+  display: inline-flex;
+  align-items: center;
+  padding: .28rem .6rem;
+  border-radius: 999px;
+  line-height: 1;
+}
+
+/* Make CTAs their own row below tags */
+.qcard .proj-ctas{
+  position: static !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;              /* ensures space under tags */
+}
+
+/* Neutralize any global utilities pushing the button upward */
+.qcard .proj-ctas .btn-accent{
+  margin-top: 0 !important;
+  transform: none !important;
+}
+
+/* Safety for narrow screens */
+@media (max-width: 520px){
+  .qcard .proj-ctas{ gap: 8px; }
+  .qcard .proj-tags{ gap: 6px; }
+}

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Research — Futuristic Showcase</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#05060f;
+      --card:#0a0f26cc;
+      --text:#e9ecff;
+      --muted:#9ba6c7;
+      --accent:#42e2f4; 
+      --glow:#42e2f455;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:radial-gradient(circle at 30% 20%, #10152f 0%, transparent 60%),
+                 radial-gradient(circle at 80% 10%, #0d1a42 0%, transparent 60%),
+                 linear-gradient(180deg,#0a0e22,#05060f 70%);
+      color:var(--text);
+      font-family:"Inter", system-ui;
+      display:grid; place-items:center; padding:40px;
+      min-height:100vh;
+    }
+    .card{
+      position:relative;
+      width:min(100%, 1080px);
+      padding:clamp(24px,4vw,48px);
+      background:var(--card);
+      border:1px solid #1a2046;
+      border-radius:28px;
+      box-shadow:0 0 25px var(--glow), inset 0 0 12px #0008;
+      backdrop-filter: blur(16px);
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      border-radius:inherit;
+      padding:2px;
+      background:conic-gradient(from 180deg,var(--accent),transparent 120deg,var(--accent));
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
+      animation: rotateBorder 8s linear infinite;
+    }
+    @keyframes rotateBorder{to{transform:rotate(360deg)}}
+
+    h1{ font-family:"Orbitron"; font-weight:700; font-size:clamp(42px, 7vw, 72px); letter-spacing:1.5px; color:var(--accent); text-shadow:0 0 20px var(--glow); }
+
+    .focus-line{ margin-top:20px; font-size:clamp(18px, 2.4vw, 24px); }
+    .rotator > .word{ font-family:"Orbitron"; font-weight:600; color:var(--accent); text-shadow:0 0 12px var(--glow); }
+    .flip{ animation: flipIn 700ms cubic-bezier(.22,.68,.17,1.02) both; transform-origin:50% 90%; }
+    @keyframes flipIn{ 0%{ transform: rotateX(-90deg); opacity:0 } 60%{ transform: rotateX(15deg); opacity:1 } 100%{ transform: rotateX(0deg) } }
+
+    .role{ margin-top:16px; color:var(--muted); font-size:clamp(15px,1.8vw,18px); }
+    .pill{ display:inline-block; margin-left:8px; padding:8px 14px; border:1px solid var(--accent); border-radius:999px; color:var(--accent); font-weight:600; background:#0d122e; box-shadow:0 0 10px var(--glow); }
+
+    .projects{ margin-top:40px; line-height:1.6; }
+    .projects h2{ font-family:"Orbitron"; font-size:28px; margin-bottom:12px; color:var(--accent); text-shadow:0 0 14px var(--glow); }
+    .projects p{ margin:10px 0; color:var(--muted); }
+    .grid{ display:grid; gap:22px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); margin-top:22px; }
+    .proj{ background:#0d122e; border:1px solid #1e2a6c; border-radius:18px; padding:18px; box-shadow:0 0 12px #0008; transition:transform .3s ease, box-shadow .3s ease; }
+    .proj:hover{ transform:translateY(-4px) scale(1.02); box-shadow:0 0 20px var(--glow); }
+    .proj h3{ margin:0 0 8px; font-size:20px; font-family:"Orbitron"; color:var(--accent); }
+    .proj p{ margin:0 0 8px; color:#cbd2ff; }
+    .proj ul{ margin:0; padding-left:18px; color:#aeb8e6; font-size:14px; }
+  </style>
+</head>
+<body>
+  <section class="card">
+    <h1>Research</h1>
+    <div class="focus-line">
+      Focus: <span class="rotator"><span class="word" id="word">Site Reliability Engineering</span></span>
+    </div>
+    <p class="role">
+      Intern at <span class="pill">xLab</span> under Professor Tianyin Xu
+    </p>
+
+    <div class="projects">
+      <h2>My Contributions</h2>
+      <p>I design and build systems at the intersection of Site Reliability Engineering, distributed systems, and AI agents. My work includes infrastructure automation, agent tooling, and simulators for fault tolerance research.</p>
+
+      <div class="grid">
+        <article class="proj">
+          <h3>FleetCast</h3>
+          <p>TiDB-backed orbital simulation platform to test system reliability under misoperations.</p>
+          <ul>
+            <li>Built <strong>FleetCast</strong>, the lab’s orbital-pass simulation platform for injecting misoperation faults into distributed databases</li>
+            <li>Deployed as its own <strong>Helm application</strong> with Kubernetes pods and integrated workload generation for controlled experiments</li>
+            <li>Connected FleetCast to <strong>TiDB clusters</strong> managed by the TiDB Operator, creating a reproducible data pipeline for research</li>
+            <li>Developed <strong>TiDBClusterDeployer</strong>, an automation tool that provisions clusters, applies manifests, seeds schemas, and prepares datasets for FleetCast workloads</li>
+            <li>Enabled repeatable, realistic <strong>fault-injection experiments</strong> (operator misoperations) with telemetry streaming into TiDB</li>
+            <li>Provided a foundation for benchmarking <strong>system resilience and AI-Ops agents</strong> under controlled orbital-style workloads</li>            
+          </ul>
+        </article>
+
+
+        <article class="proj">
+            <h3>Observability Tools for Agents</h3>
+            <p>Built Prometheus and Jaeger integrations as reusable LangGraph nodes, enabling agents to reason over real observability data and drive autonomous SRE workflows.</p>
+            <ul>
+              <li>Developed a <strong>Prometheus MCP Server</strong> and tools for querying live metrics with PromQL</li>
+              <li>Implemented <strong>Jaeger trace nodes</strong> (get_traces, get_services, get_operations) for fetching and analyzing distributed traces</li>
+              <li>Added <strong>summarization pipelines</strong> to transform raw metrics, traces, and operations into concise root-cause insights</li>
+              <li>Exposed observability data as <strong>reusable LangGraph nodes</strong> that agents can call during incident loops</li>
+              <li>Provided a unified framework that connects <strong>metrics + traces + LLM summarization</strong> into actionable, research-ready workflows</li>
+            </ul>            
+        </article>
+
+        <article class="proj">
+            <h3>Summarization Tools</h3>
+            <p>Designed summarization modules that distill raw observability data and LLM outputs into concise, actionable insights for agents.</p>
+            <ul>
+              <li>Built <strong>trace summarizers</strong> for Jaeger, extracting key spans and condensing distributed traces into root-cause narratives</li>
+              <li>Developed <strong>metrics summarizers</strong> for Prometheus, converting noisy time-series into succinct performance and anomaly reports</li>
+              <li>Created <strong>LLM conversation summarizers</strong> that maintain agent context across long dialogues and incident loops</li>
+            </ul>
+          </article>
+
+        <article class="proj">
+            <h3>PostgreSQL Compilation Tool</h3>
+            <p>Implemented a LangGraph node that automates compilation and provisioning of PostgreSQL servers, enabling agents to interact directly with complex database infrastructure.</p>
+            <ul>
+              <li>Created a <strong>compile_postgresql_server</strong> tool that builds PostgreSQL from source and initializes a working instance</li>
+              <li>Automated the full lifecycle: configure, make, install, initialize (initdb), and launch a running server with a test database</li>
+              <li>Integrated with <strong>LangGraph state</strong> to dynamically select work directories and execution environments</li>
+              <li>Provides agents with a safe interface to <strong>compile, run, and query PostgreSQL</strong> during research workflows</li>
+            </ul>
+        </article>
+
+        <article class="proj">
+          <h3>Operator Misoperation Faults</h3>
+          <p>Designed and implemented Kubernetes Operator misoperation faults to test the resilience of TiDB clusters under invalid configurations.</p>
+          <ul>
+            <li>Built automated fault injections that introduce misoperations such as invalid tolerations and affinity rules</li>
+            <li>Contributed to more robust <strong>Kubernetes operator reliability</strong> through proactive resilience testing</li>
+          </ul>          
+        </article>
+
+        
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const PHRASES = ["Site Reliability Engineering","Distributed Systems","AI Agents"];
+    const wordEl = document.getElementById('word');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let i = 0;
+    function swapWord(){
+      i = (i + 1) % PHRASES.length;
+      wordEl.classList.remove('flip');
+      void wordEl.offsetWidth;
+      wordEl.textContent = PHRASES[i];
+      wordEl.classList.add('flip');
+    }
+    if(!reduceMotion){
+      setInterval(swapWord, 2500);
+      wordEl.classList.add('flip');
+    }
+  </script>
+</body>
+</html>

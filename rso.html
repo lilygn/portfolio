@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lily — RSOs & Engagement | Q‑Dossier</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070b18;           
+      --panel:rgba(20,28,58,.6);
+      --panel-strong:rgba(20,28,58,.85);
+      --ink:#eaf0ff;
+      --muted:#9fb1d7;
+      --accent:#7C5CFF;       
+      --cyan:#39E0FF;        
+      --lime:#6BFF95;         
+      --cta:#00D4FF;          
+      --grid:rgba(124,92,255,.12);
+      --ring-cyan:0 0 28px rgba(57,224,255,.45);
+      --ring-lilac:0 0 28px rgba(124,92,255,.45);
+      --ring-lime:0 0 28px rgba(107,255,149,.45);
+      --radius:22px;
+      --s1:.375rem; --s2:.625rem; --s3:1rem; --s4:1.25rem; --s5:1.75rem; --s6:2.5rem; --s7:4.5rem;
+    }
+    html,body{height:100%;background:radial-gradient(1200px 800px at 10% -10%, rgba(124,92,255,.18), transparent 60%), radial-gradient(1000px 500px at 110% 10%, rgba(57,224,255,.18), transparent 60%), var(--bg);color:var(--ink);margin:0;-webkit-font-smoothing:antialiased;}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+    a{color:inherit;text-decoration:none}
+
+    .wrap{max-width:1100px;margin:0 auto;padding:var(--s6) var(--s3) var(--s7);position:relative}
+    .glass{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); backdrop-filter: blur(10px); border:1px solid rgba(255,255,255,.1); border-radius:var(--radius); box-shadow: 0 10px 40px rgba(0,0,0,.3), inset 0 0 0 1px rgba(255,255,255,.04)}
+    .hr{height:1px;background:linear-gradient(90deg, transparent, rgba(124,92,255,.4), rgba(57,224,255,.4), transparent); margin:var(--s4) 0}
+
+    .hero{position:relative;overflow:hidden;padding:var(--s6); display:grid; gap:var(--s4)}
+    .hero h1{font-family:Orbitron,system-ui; letter-spacing:.5px; font-size: clamp(2rem, 4vw, 3rem); margin:0}
+    .kicker{font-family:Space Grotesk; color:var(--muted); font-size:.95rem}
+    .scan{position:absolute; inset:0; background: repeating-linear-gradient(180deg, rgba(124,92,255,.05) 0 2px, transparent 2px 6px); mix-blend-mode:screen; pointer-events:none}
+    .flare{position:absolute; inset:auto -20% -40% -20%; height:240px; background:radial-gradient(40% 100% at 50% 0%, rgba(57,224,255,.35), transparent 60%); filter:blur(16px)}
+
+    .chipbar{display:flex; gap:10px; flex-wrap:wrap}
+    .chip{display:inline-flex; align-items:center; gap:8px; padding:.45rem .7rem; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(20,28,58,.6)}
+    .chip svg{opacity:.85}
+
+    .cta{justify-self:start; display:inline-flex; align-items:center; gap:.6rem; padding:.7rem 1rem; border-radius:999px; border:1px solid rgba(0,212,255,.35); background:linear-gradient(180deg, rgba(0,212,255,.15), rgba(0,212,255,.08)); box-shadow: var(--ring-cyan); font-weight:600}
+
+    h2.section-title{font-family:Space Grotesk; letter-spacing:.3px; margin:.25rem 0 0}
+    .section-sub{color:var(--muted); margin:0 0 var(--s4)}
+
+    .toolbar{display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:var(--s2); border-radius:999px; background:rgba(10,14,32,.6); border:1px solid rgba(255,255,255,.1)}
+    .toolbtn{padding:.5rem .9rem; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(124,92,255,.12); cursor:pointer; font-weight:600}
+    .toolbtn[aria-pressed="true"]{outline:2px solid rgba(124,92,255,.5); box-shadow: var(--ring-lilac)}
+    .search{flex:1; min-width:220px; display:flex; align-items:center; gap:8px; padding:.55rem .75rem; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.03)}
+    .search input{all:unset; flex:1}
+
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .card{position:relative; grid-column: span 6; padding:var(--s4); border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.12); box-shadow: 0 8px 28px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.04)}
+    .card.large{grid-column: span 12}
+    @media (max-width: 860px){ .card, .card.large{grid-column: span 12} }
+
+    .card h3{font-family:Space Grotesk; margin:0 0 .4rem}
+    .meta{display:flex; gap:.6rem; flex-wrap:wrap; color:var(--muted); font-size:.9rem}
+    .role{font-weight:700; color:#bfe1ff}
+    .badges{margin:.6rem 0 .4rem; display:flex; gap:8px; flex-wrap:wrap}
+    .badge{font-size:.8rem; padding:.3rem .55rem; border-radius:999px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.06)}
+    .desc{color:#ccdbff; line-height:1.55}
+    .actions{display:flex; gap:10px; margin-top:12px}
+    .ghost{padding:.45rem .75rem; border-radius:10px; border:1px dashed rgba(0,212,255,.3); background:transparent}
+
+    .card::before,.card::after{content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none}
+    .card::before{border:1px solid rgba(124,92,255,.25)}
+    .card::after{mask:radial-gradient(220px 60px at 0% 0%, #000 95%, transparent) top left, radial-gradient(220px 60px at 100% 100%, #000 95%, transparent) bottom right; -webkit-mask-composite: destination-out; mask-composite: exclude; border:2px solid rgba(57,224,255,.55); filter:blur(.6px);}
+
+    .timeline{position:relative; padding:var(--s4); border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.12)}
+    .timeline::before{content:""; position:absolute; left:20px; top:20px; bottom:20px; width:2px; background:linear-gradient(180deg, rgba(124,92,255,.6), rgba(57,224,255,.6))}
+    .titem{position:relative; margin:0 0 var(--s5) 50px}
+    .titem:last-child{margin-bottom:0}
+    .titem .dot{position:absolute; left:-34px; top:6px; width:14px; height:14px; border-radius:50%; background:linear-gradient(180deg, var(--cyan), var(--accent)); box-shadow: var(--ring-cyan)}
+    .titem h4{margin:.1rem 0 .25rem; font-family:Space Grotesk}
+    .titem .when{color:var(--muted); font-size:.9rem}
+
+    .quotes{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .quote{grid-column: span 6; padding:var(--s4); border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.1); font-family:Space Grotesk; font-size:1.02rem; line-height:1.6}
+    .quote em{color:#cde7ff}
+    @media (max-width: 860px){ .quote{grid-column: span 12} }
+
+    .footer{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:var(--s4); border-radius:var(--radius); background:linear-gradient(180deg, rgba(0,212,255,.12), rgba(124,92,255,.08)); border:1px solid rgba(0,212,255,.25); box-shadow: var(--ring-cyan)}
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:.7rem 1rem; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06); font-weight:600}
+
+    .card,.timeline,.quote,.footer,.hero{transform: translateZ(0)}
+    .card{transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+    .card:hover{transform: translateY(-4px); box-shadow: 0 18px 80px rgba(57,224,255,.18), 0 0 0 1px rgba(124,92,255,.18) inset}
+    .toolbtn:hover,.btn:hover,.ghost:hover,.cta:hover{filter:brightness(1.12)}
+
+    .muted{color:var(--muted)}
+    .right{margin-left:auto}
+  </style>
+</head>
+<body>
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lily — RSOs & Engagement | Q-Dossier</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="hero glass" role="banner">
+        <div class="scan" aria-hidden="true"></div>
+        <div class="flare" aria-hidden="true"></div>
+        <p class="kicker">Q-Dossier // Engagement & RSOs</p>
+        <h1>Operations: Campus Engagement<br><span class="muted" style="font-size:1rem">Signal: verified • Status: active</span></h1>
+        <div class="chipbar" aria-label="quick facts">
+          <span class="chip" title="Leadership"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5 20l2-7L1 9h7l4-7z" stroke="var(--cyan)"/></svg>Leadership</span>
+          <span class="chip" title="Mentorship"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zM2 22a10 10 0 0120 0" stroke="var(--accent)"/></svg>Mentorship</span>
+          <span class="chip" title="Community Impact"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="var(--lime)"/></svg>Community Impact</span>
+        </div>
+        <a class="cta" href="#grid" aria-label="Skip to Engagement Grid">Open dossier</a>
+      </header>
+  
+      <section class="glass" style="margin: var(--s4) 0; padding: var(--s3)">
+        <div class="toolbar" role="toolbar" aria-label="Filter engagements">
+          <button class="toolbtn" data-filter="all" aria-pressed="true">All</button>
+          <button class="toolbtn" data-filter="leadership">Leadership</button>
+          <button class="toolbtn" data-filter="mentorship">Mentorship</button>
+          <button class="toolbtn" data-filter="outreach">Outreach</button>
+          <div class="search" role="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="#bfe1ff"/><path d="M20 20l-3.5-3.5" stroke="#bfe1ff"/></svg>
+            <input id="q" placeholder="Search orgs, roles, impact…" aria-label="Search engagements" />
+          </div>
+        </div>
+      </section>
+  
+      <main id="grid" class="grid" aria-live="polite">
+        <article class="card" data-tags="leadership mentorship outreach" tabindex="0">
+          <h3>Computer Science Ambassador and Research Student (CS STAR)</h3>
+          <div class="meta"><span class="role">Ambassador</span><span>2025 – Present</span><span>UIUC</span></div>
+          <div class="badges">
+            <span class="badge">Student Support</span>
+            <span class="badge">Events & Outreach</span>
+            <span class="badge">Mentorship</span>
+            <span class="badge">Research</span>
+            <span class="badge">Q&A Sessions</span>
+  
+          </div>
+          <p class="desc">Represented the CS department as an ambassador. Helped organize technical workshops and responsible for campus outreach. </p>
+          <p class="desc">Guided prospective and first-year students on coursework, research opportunities, and campus resources. Provided inclusive tours and Q&A sessions to build belonging and success strategies.</p>
+  
+          <div class="actions">
+            <a class="btn" href="https://siebelschool.illinois.edu/broadening-participation-computing/programs/csambassadors/participants/77236" target="_blank" rel="noopener noreferrer">
+              CS STAR Profile
+            </a>
+          </div>
+          
+        </article>
+            <article class="card" data-tags="leadership community service" tabindex="0">
+              <h3>Phi Sigma Rho • STEM Sorority</h3>
+              <div class="meta"><span class="role">Social Media Director + Risk Manager</span><span>2024 – Present</span><span>UIUC</span></div>
+              <div class="badges">
+                <span class="badge">Community</span>
+                <span class="badge">Service</span>
+                <span class="badge">Professional Dev</span>
+              </div>
+              <p class="desc">Directed social media and risk management. Contributed to service events and professional development nights.</p>
+              <div class="actions">
+                <a class="ghost" href="#">Photos Coming Soon</a>
+              </div>
+            </article>
+        <article class="card" data-tags="leadership outreach mentorship" tabindex="0">
+          <h3>Girls Who Code</h3>
+          <div class="meta"><span class="role">Facilitator</span><span>2024 – Present</span><span>University of Illinois</span></div>
+          <div class="badges">
+            <span class="badge">Mentorship</span>
+            <span class="badge">Education</span>
+            <span class="badge">Outreach</span>
+          </div>
+          <p class="desc">Developed and delivered coding curricula for K-12 classrooms, mentoring students and promoting equity in STEM education.</p>
+          <div class="actions">
+            <a class="btn" href="#">Gallery</a>
+            <a class="ghost" href="#">Docs</a>
+          </div>
+        </article>
+  
+        <article class="card" data-tags="mentorship technical education" tabindex="0">
+          <h3>Women in Computer Science</h3>
+          <div class="meta"><span class="role">Member</span><span>Jan–Apr 2025</span><span>Remote • Nashville Schools</span></div>
+          <div class="badges">
+            <span class="badge">Technical Workshops</span>
+            <span class="badge">Project Mentorship</span>
+            <span class="badge">Collaboration</span>
+          </div>
+          <p class="desc">Participated in SQL and MongoDB workshops; collaborated with peers to design and guide technical projects. Mentored members by discussing, planning, and supporting development.</p>
+    
+        </article>
+        
+  
+        
+  
+        <article class="card" data-tags="leadership outreach technical" tabindex="0">
+          <h3>ACM • Student Chapter</h3>
+          <div class="meta"><span class="role">Organizer</span><span>September, 2024 – Present</span><span>UIUC</span></div>
+          <div class="badges">
+            <span class="badge">Tech Workshops</span>
+            <span class="badge">AI Talks</span>
+            <span class="badge">Events and Outreach</span>
+          </div>
+          <p class="desc"> Met with local startups and businesses to discuss the integration of AI in local businesses. Attended robotics workshops. Worked HackIllinois. </p>
+        
+        </article>
+  
+   
+  
+    
+      </main>
+  
+    </div>
+    <script>
+    </script>
+  </body>
+  </html>
+  
+    <div style="height: var(--s6)"></div>
+
+    
+
+    <div style="height: var(--s6)"></div>
+
+    <footer class="footer">
+      <div>
+        <strong>Inquiries?</strong>
+        <div class="muted">Contact me here:.</div>
+      </div>
+      <div class="right">
+        <a class="btn" href="mailto:lilygn6@gmail.com">Email Lily</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.toolbtn');
+    const cards = [...document.querySelectorAll('.card')];
+    const search = document.getElementById('q');
+
+    function applyFilters(){
+      const active = document.querySelector('.toolbtn[aria-pressed="true"]').dataset.filter;
+      const q = (search.value||'').toLowerCase();
+      cards.forEach(c=>{
+        const tags = c.dataset.tags||'';
+        const text = c.innerText.toLowerCase();
+        const tagPass = (active==='all') || tags.includes(active);
+        const qPass = !q || text.includes(q);
+        c.style.display = (tagPass && qPass)?'block':'none';
+      });
+    }
+
+    buttons.forEach(b=>b.addEventListener('click',()=>{
+      buttons.forEach(x=>x.setAttribute('aria-pressed','false'));
+      b.setAttribute('aria-pressed','true');
+      applyFilters();
+    }));
+    search.addEventListener('input', applyFilters);
+  </script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lily Gniedziejko — Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="home.css" />
+  <script src="slider.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <section class="glass section" aria-labelledby="hero-title">
+      <h1 id="hero-title">Lily Gniedziejko</h1>
+      <p class="muted">Computer Science @ UIUC </p>
+      <div class="hr" aria-hidden="true"></div>
+
+      <div class="about-grid">
+        <figure class="pfp" aria-label="Portrait of Lily">
+          <img src="pics/pfp.jpeg" alt="Portrait of Lily Gniedziejko" />
+        </figure>
+
+        <div>
+          <h2>About</h2>
+          <p>
+            I’m a sophomore in Computer Science at the University of Illinois Urbana‑Champaign, building systems, agents, and tools that feel a little bit sci‑fi.
+          </p>
+          <nav aria-label="Section shortcuts" style="display:flex; gap:12px; flex-wrap:wrap">
+            <a class="btn" href="docs/LilyGniedziejko_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+            <a class="btn" href="research.html">Research</a>
+            <a class="btn" href="internship.html">Internships</a>
+          
+            <a class="btn" href="#awards">See Awards</a>
+            <a class="btn" href="#classes">See Classes</a>
+            <a class="btn" href="#certifications">See Certifications</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="section slider" aria-label="Awards carousel">
+      <div class="slider-header">
+        <h2>Awards</h2>
+        <div class="navwrap" aria-hidden="false">
+          <button class="navbtn prev" aria-label="Previous slide" type="button">&#x2190;</button>
+          <button class="navbtn next" aria-label="Next slide" type="button">&#x2192;</button>
+        </div>
+      </div>
+
+      <div class="slider-viewport" role="region" aria-roledescription="carousel" tabindex="0">
+        <div class="slider-track">
+          <div class="slide">
+            <article class="card award">
+              <div class="award-img-wrap">
+                <img class="award-img" src="pics/CELEBRATION.JPG" alt="Siebel Celebration of Excellence event photo" />
+                <span class="award-kicker">2025 Siebel Celebration of Excellence</span>
+              </div>
+              <div class="award-body">
+                <h3>Honored at the 2025 Celebration of Excellence</h3>
+                <p>Recognized by the Siebel School of Computing & Data Science for academic excellence and impact.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="slide">
+            <article class="card award">
+              <div class="award-img-wrap">
+                <img class="award-img" src="pics/certificate.jpg" alt="Dunn Scholarship certificate" />
+                <span class="award-kicker">Dunn Scholarship</span>
+              </div>
+              <div class="award-body">
+                <h3>Dunn Scholarship Recipient</h3>
+                <p>Merit scholarship awarded for leadership and academic performance.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="slide">
+            <article class="card award">
+              <div class="award-img-wrap">
+                <img class="award-img" src="pics/JAMESSCHOLAR.JPG" alt="James Scholar recognition" />
+                <span class="award-kicker">James Scholar</span>
+              </div>
+              <div class="award-body">
+                <h3>James Scholar</h3>
+                <p>Grainger College of Engineering distinguished scholar.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="slide">
+            <article class="card award">
+              <div class="award-img-wrap">
+                <img class="award-img" src="pics/DEANS.pdf" alt="Dean’s List recognition" />
+                <span class="award-kicker">Dean’s List Award</span>
+              </div>
+              <div class="award-body">
+                <h3>Dean's List</h3>
+                <p>Fall 2024 and Spring 2025.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="slide">
+            <article class="card award">
+              <div class="award-img-wrap">
+                <img class="award-img" src="pics/COMMERCE.HEIC" alt="Chamber of Commerce scholarship" />
+                <span class="award-kicker">Chamber of Commerce Award</span>
+              </div>
+              <div class="award-body">
+                <h3>Chamber of Commerce Scholarship</h3>
+                <p>Local scholarship awarded for academic excellence and service.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="slide">
+            <article class="card award">
+              <div class="award-img-wrap">
+                <img class="award-img" src="pics/SALUT.HEIC" alt="Salutatorian honor" />
+                <span class="award-kicker">Salutatorian</span>
+              </div>
+              <div class="award-body">
+                <h3>Salutatorian</h3>
+                <p>Graduated 2nd of 570 students. GPA 4.66 weighted, 3.99 unweighted.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="slide">
+            <article class="card award">
+              <div class="award-img-wrap">
+                <img class="award-img" src="pics/POLISH.jpg" alt="Polish School graduation honor" />
+                <span class="award-kicker">Polish School Graduate</span>
+              </div>
+              <div class="award-body">
+                <h3>Red Ribbon Honor Graduate</h3>
+                <p>
+                  Earned the Red Ribbon distinction each year from middle school through high school.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="dots" aria-hidden="true"></div>
+    </section>
+  </div>
+  <section id="navigation" class="glass section" aria-labelledby="nav-title" style="margin-top: var(--s6)">
+    <h2 id="nav-title">Explore More</h2>
+    <p class="muted">Navigate to see my research projects and internship experiences.</p>
+    <div class="hr" aria-hidden="true"></div>
+    <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:1rem">
+    <a class="btn" href="research.html">Research Page</a>
+    <a class="btn" href="internship.html">Internship Page</a>
+    </div>
+    </section>
+
+  <div class="class-container">
+    <section class="glass section" id="classes" aria-labelledby="classes-title">
+      <h2 id="classes-title">Classes</h2>
+      <p class="muted">A selection of courses I’ve taken at UIUC.</p>
+      <div class="hr" aria-hidden="true"></div>
+
+      <ul class="class-list">
+        <li>
+          <span class="course-code">CS 124</span>
+          <span class="course-title">Intro to Computer Science I</span>
+        </li>
+        <li>
+          <span class="course-code">CS 128</span>
+          <span class="course-title">Intro to Computer Science III</span>
+        </li>
+        <li>
+          <span class="course-code">CS 173</span>
+          <span class="course-title">Discrete Structures</span>
+        </li>
+        <li>
+          <span class="course-code">CS 222</span>
+          <span class="course-title">Software Design Lab</span>
+        </li>
+        <li>
+          <span class="course-code">CS 225</span>
+          <span class="course-title">Data Structures</span>
+        </li>
+        <li>
+          <span class="course-code">CS 233</span>
+          <span class="course-title">Computer Architecture</span>
+        </li>
+        <li>
+          <span class="course-code">CS 361</span>
+          <span class="course-title">Probability & Statistics for CS</span>
+        </li>
+        <li>
+          <span class="course-code">CS 591</span>
+          <span class="course-title">Systems & Networking Seminar</span>
+        </li>
+        <li>
+          <span class="course-code">MATH 231</span>
+          <span class="course-title">Calculus II</span>
+        </li>
+        <li>
+          <span class="course-code">MATH 241</span>
+          <span class="course-title">Calculus III</span>
+        </li>
+        <li>
+          <span class="course-code">MATH 257</span>
+          <span class="course-title">Linear Algebra with Computational Application</span>
+        </li>
+        <li>
+          <span class="course-code">PHYS 211</span>
+          <span class="course-title">Physics: Mechanics</span>
+        </li>
+        <li>
+          <span class="course-code">PHYS 212</span>
+          <span class="course-title">Physics: E&M</span>
+        </li>
+      </ul>
+
+      <section class="glass section" aria-labelledby="hs-title" style="margin-top: var(--s6)">
+        <h2 id="hs-title">Relevant High School Classes</h2>
+        <p class="muted">Foundations that set me up for CS at Illinois.</p>
+        <div class="hr" aria-hidden="true"></div>
+        <ul class="class-list">
+          <li>
+            <span class="course-title">Intro to Computer Science</span>
+            <div class="skill-tags">
+              <span class="tag" data-hue="lilac">HTML</span>
+              <span class="tag" data-hue="lilac">CSS</span>
+              <span class="tag" data-hue="cyan">Algorithms</span>
+              <span class="tag" data-hue="teal">Web Dev</span>
+            </div>
+          </li>
+          <li>
+            <span class="course-title">AP Computer Science Principles</span>
+            <div class="skill-tags">
+              <span class="tag" data-hue="lilac">JavaScript</span>
+            </div>
+          </li>
+          <li>
+            <span class="course-title">AP Computer Science A</span>
+            <div class="skill-tags">
+              <span class="tag" data-hue="lilac">Java</span>
+            </div>
+          </li>
+          <li>
+            <span class="course-title">AP Calculus AB</span>
+            <div class="skill-tags">
+              <span class="tag" data-hue="cyan">Calculus I</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </div>
+
+  <section id="programs" class="section container" aria-labelledby="programs-title">
+    <h2 id="programs-title">Programs & Fellowships</h2>
+    <div class="cert-list">
+      <article class="cert-item">
+        <img class="cert-logo" src="pics/nvidia.jpg" alt="NVIDIA Bridge Program badge" />
+        <div class="cert-details">
+          <h3 class="cert-title">NVIDIA Bridge Program</h3>
+          <div class="cert-meta">
+            <span class="issuer">NVIDIA</span>
+            <span class="dot">•</span>
+            <span class="issued">Summer 2025</span>
+          </div>
+          <p class="muted" style="margin:.35rem 0 0">
+            Invited to join a selective program exploring NVIDIA’s ecosystem—connecting with engineers and alumni, 
+            gaining exposure to GPUs, AI tooling, and professional development workshops.
+          </p>
+          <div class="cert-actions" style="margin-top:.6rem">
+            <a class="btn small" href="/posts/nvidia-bridge.html">Read announcement</a>
+            <a class="btn small" href="https://www.nvidia.com/en-us/" target="_blank" rel="noopener">About NVIDIA</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section id="certifications" class="section container" aria-labelledby="certs-title">
+    <h2 id="certs-title">Certifications</h2>
+
+    <div class="cert-list">
+      <article class="cert-item">
+        <img class="cert-logo" src="pics/nvidia.jpg" alt="NVIDIA badge" />
+        <div class="cert-details">
+          <h3 class="cert-title">Building RAG Agents with LLMs</h3>
+          <div class="cert-meta">
+            <span class="issuer">NVIDIA</span>
+            <span class="dot">•</span>
+            <span class="issued">Issued Jul 2025</span>
+          </div>
+          <div class="cert-id">
+            <span class="id-label">Credential ID</span>
+            <span class="id-value">1eFdtT3wTImj4NPHMjeEAQ</span>
+          </div>
+          <div class="cert-actions">
+            <a class="btn small" href="https://learn.nvidia.com/certificates?id=1eFdtT3wTImj4NPHMjeEAQ" target="_blank" rel="noopener">Show credential</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cert-item">
+        <img class="cert-logo" src="pics/deeplearning.png" alt="DeepLearning.AI badge" />
+        <div class="cert-details">
+          <h3 class="cert-title">Functions, Tools & Agents with LangChain</h3>
+          <div class="cert-meta">
+            <span class="issuer">DeepLearning.AI</span>
+          </div>
+          <div class="cert-actions">
+            <a class="btn small" href="https://learn.deeplearning.ai/accomplishments/3837c076-acb4-4a73-9730-03e8e5d1ec2a?usp=sharing" target="_blank" rel="noopener">Show credential</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cert-item">
+        <img class="cert-logo" src="pics/opencv.png" alt="OpenCV badge" />
+        <div class="cert-details">
+          <h3 class="cert-title">OpenCV Bootcamp</h3>
+          <div class="cert-meta">
+            <span class="issuer">OpenCV</span>
+            <span class="dot">•</span>
+            <span class="issued">Issued May 2025</span>
+          </div>
+          <div class="cert-id">
+            <span class="id-label">Credential ID</span>
+            <span class="id-value">j2Df5LzUQ5SHZbV4YqnMKg</span>
+          </div>
+          <div class="cert-actions">
+            <a class="btn small" href="https://courses.opencv.org/certificates/c7cd02dc0d2e421094f6505fad515284" target="_blank" rel="noopener">Show credential</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  
+  
+</body>
+
+</html>

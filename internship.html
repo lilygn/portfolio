@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Lily Gniedziejko — Projects</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="internship.css?v=1">
+</head>
+<body>
+
+
+  <section id="projects" class="section space-wrap">
+    <header class="projects-head">
+      <h2 class="neon-title">Projects</h2>
+      <p class="muted">systems • agents • tooling</p>
+    </header>
+  
+    <div class="projects-grid">
+      <article class="proj-card qcard" data-tilt>
+        <div class="proj-media" style="--z:24px">
+          <img src="pics/icon.png" alt="FleetCast Satellite Operations Simulator">
+          <span class="halo"></span><span class="grid"></span><span class="scan"></span>
+          <span class="br tl"></span><span class="br tr"></span><span class="br bl"></span><span class="br brc"></span>
+          <span class="glare"></span>
+        </div>
+        <div class="proj-body" style="--z:40px">
+          <h3 class="proj-title">FleetCast – Satellite Operations Simulator</h3>
+          <p class="proj-desc">
+            Built a real-time simulator for satellite telemetry and orbital passes with a station dashboard to display live connections and data. 
+            Powered by <strong>TiDB</strong> for storage and deployed with <strong>Docker, Kubernetes, and Helm</strong> in the XLab. 
+            Practiced <strong>fault injection</strong>, <strong>monitoring</strong>, and <strong>resilience testing</strong>.
+          </p>
+          <div class="proj-tags"><span>Kubernetes</span><span>Docker</span><span>Helm</span><span>TiDB</span></div>
+        </div>
+        <div class="proj-actions" style="--z:52px">
+          <a class="btn-ghost" href="https://github.com/lilygn/FleetCastDemo" target="_blank" rel="noopener">Repo</a>
+          <a class="btn-ghost" href="case-studies/orbital.html">More Information</a>
+          <button class="btn-accent" data-demo='{"type":"iframe","src":"https://fleetcast.vercel.app"}'>Live Demo</button>
+        </div>
+      </article>
+  
+      <article class="proj-card qcard" data-tilt>
+        <div class="proj-media" style="--z:24px">
+          <img src="pics/iSwipe.png" alt="RSO Swiper & Research Lab Finder">
+          <span class="halo"></span><span class="grid"></span><span class="scan"></span>
+          <span class="br tl"></span><span class="br tr"></span><span class="br bl"></span><span class="br brc"></span>
+          <span class="glare"></span>
+        </div>
+        <div class="proj-body" style="--z:40px">
+          <h3 class="proj-title">RSO Swiper & Research Lab Finder – React Native App</h3>
+          <p class="proj-desc">
+            Developed a swipe-to-save app with <strong>Firebase authentication</strong> and <strong>OpenAI embeddings</strong> to filter RSO and lab cards. 
+            Scraped UIUC CS and RSO sites with <strong>BeautifulSoup</strong> and <strong>Cheerio</strong> to build the dataset.
+          </p>
+          <div class="proj-tags"><span>React Native</span><span>Firebase</span><span>OpenAI</span><span>Web Scraping</span></div>
+        </div>
+        <div class="proj-actions" style="--z:52px">
+          <a class="btn-ghost" href="https://github.com/lilygn/iSwipe" target="_blank" rel="noopener">Repo</a>
+          <a class="btn-ghost" href="case-studies/Future.html">Case Study</a>
+          <button class="btn-accent" data-demo='{"type":"video","src":"videos/Future.mp4"}'>Watch Demo</button>
+        </div>
+      </article>
+  
+      <article class="proj-card qcard" data-tilt>
+        <div class="proj-media" style="--z:24px">
+          <img src="pics/overlay.png" alt="YouTube AI Assistant Chrome Extension">
+          <span class="halo"></span><span class="grid"></span><span class="scan"></span>
+          <span class="br tl"></span><span class="br tr"></span><span class="br bl"></span><span class="br brc"></span>
+          <span class="glare"></span>
+        </div>
+        <div class="proj-body" style="--z:40px">
+          <h3 class="proj-title">YouTube AI Assistant – Chrome Extension</h3>
+          <p class="proj-desc">
+            Published Chrome extension that overlays YouTube with AI-generated summaries and quizzes using scraped transcripts. 
+            Built with <strong>LangChain pipelines</strong> and the <strong>OpenAI API</strong> to help students study more efficiently.
+          </p>
+          <p class="proj-status"><em>Published.</em></p>
+          <div class="proj-tags"><span>Chrome Extension</span><span>LangChain</span><span>OpenAI API</span></div>
+        </div>
+        <div class="proj-actions" style="--z:52px">
+          <a class="btn-ghost" href="https://github.com/lilygn/youtube-learning-overlay/tree/main" target="_blank" rel="noopener">Repo</a>
+          <a class="btn-ghost" href="https://chromewebstore.google.com/detail/youtube-learning-overlay/jkmlllelhaoggehihgcefjhmdikiegne?pli=1">Link to ChromeStore</a>
+          <button class="btn-accent" data-demo='{"type":"iframe","src":"https://streamlit.app/your-app"}'>Live Demo</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+<div id="demo-modal" class="demo-modal" aria-hidden="true" role="dialog" aria-label="Project demo">
+  <div class="demo-sheet" role="document">
+    <button class="close" aria-label="Close">✕</button>
+    <div class="demo-content"></div>
+  </div>
+</div>
+
+<section id="internships" class="section space-wrap">
+  <header class="projects-head">
+    <h2 class="neon-title">Internship Projects</h2>
+    <p class="muted">hands-on builds • shipped features • real users</p>
+  </header>
+
+  <div class="projects-grid">
+    <article class="proj-card qcard" data-tilt>
+      <div class="proj-media" style="--z:24px">
+        <img src="pics/mueller.png" alt="Mueller Water Products dashboard">
+        <span class="halo"></span><span class="grid"></span><span class="scan"></span>
+        <span class="br tl"></span><span class="br tr"></span><span class="br bl"></span><span class="br brc"></span>
+        <span class="glare"></span>
+      </div>
+
+      <div class="proj-body" style="--z:40px">
+        <h3 class="proj-title">Software Engineering Intern — Mueller Water Products</h3>
+        <p class="proj-desc">
+          Built production features across the stack; focused on ops tooling, UX flows, and cloud deploys.
+        </p>
+        <div class="proj-tags">
+          <span>React</span><span>RAG</span><span>Azure</span><span>Python</span> <span>Chatbot development</span><span>PowerBi</span>
+        </div>
+      </div>
+
+      <div class="subgrid" style="--z:52px">
+        <article class="subcard">
+          <h4>Maintenance Chatbot</h4>
+          <p> Developed an internal chatbot that processes over 1,500 technical PDFs–including 400+ page manuals and engineering drawings–to assist the maintenance team, reduce downtime, and link directly to exact pages in source documents. </p>
+          <div class="sub-actions">
+            <button class="btn-accent" data-demo='{"type":"video","src":"videos/cropped_chatbot.mp4"}'>Watch Demo</button>
+          </div>
+        </article>
+
+        <article class="subcard">
+          <h4>Microsoft Teams Bot</h4>
+          <p>Created a Microsoft Teams bot that makes SQL queries and outputs PowerBi Dashboards</p>
+          <div class="sub-actions">
+            <button class="btn-accent" data-demo='{"type":"video","src":"videos/teams_bot.mp4"}'>Watch Demo</button>
+          </div>
+        </article>
+
+        <article class="subcard">
+          <h4>Data Entry Application</h4>
+          <p>Implemented a full-stack application for data entry for Autopour and Melting machines. </p>
+          <div class="sub-actions">
+            <button class="btn-accent" data-demo='{"type":"video","src":"videos/demo.mp4"}'>Watch Demo</button>
+          </div>
+        </article>
+
+        <article class="subcard">
+          <h4>Downtime Dashboard</h4>
+          <p>Created a Downtime dashboard to visualize downtime across machines, enabling filtering by machine and date. </p>
+
+        </article>
+      </div>
+    </article>
+
+    <article class="proj-card qcard" data-tilt>
+      <div class="proj-media" style="--z:24px">
+        <img src="pics/xlab.png" alt="Research control room UI">
+        <span class="halo"></span><span class="grid"></span><span class="scan"></span>
+        <span class="br tl"></span><span class="br tr"></span><span class="br bl"></span><span class="br brc"></span>
+        <span class="glare"></span>
+      </div>
+    
+      <div class="proj-body" style="--z:40px">
+        <div class="proj-header">
+          <h3 class="proj-title">Research Intern — XLab (UIUC)</h3>
+          <p class="proj-meta">
+            06/2025–present · with 
+            <a href="https://tianyin-xu.github.io/" target="_blank" rel="noopener">Prof. Tianyin Xu</a>
+          </p>
+          <div class="proj-ctas top-cta">
+            <a class="btn-accent" href="research.html" rel="noopener">See My Work</a>
+          </div>
+        </div>
+    
+        <p class="proj-desc">
+          In XLab’s Site Reliability Engineering research lab, I design and evaluate systems that make cloud infrastructure more resilient. I began by building observability tools that let agents interpret real metrics and traces, and I am now developing a benchmarking framework and fault injection experiments to study how autonomous agents can detect and mitigate failures in distributed databases and Kubernetes operators.
+        </p>
+    
+        <ul class="micro-bullets">
+          <li><strong>FleetCast</strong> — TiDB-backed orbital simulator with Helm/Kubernetes deployments</li>
+          <li><strong>Observability Nodes</strong> — Prometheus + Jaeger integrations for LangGraph agents</li>
+          <li><strong>Summarizers</strong> — pipelines that condense traces, metrics, and LLM outputs</li>
+          <li><strong>Fault Work</strong> — injecting faults in K8s operators and building tools to mitigate them</li>
+        </ul>
+    
+        <div class="proj-tags">
+          <span>Kubernetes</span><span>Distributed Systems</span><span>LangGraph</span>
+          <span>Site Reliability Engineering</span><span>AI agents</span><span>Docker</span>
+        </div>
+    
+
+    
+      <div class="subgrid" style="--z:52px">
+        <article class="subcard">
+          <h4>Agent Benchmark Harness</h4>
+          <p>Tool-calling tasks with post-tool hooks; Prometheus/Jaeger metrics and traces.</p>
+          
+        </article>
+    
+        <article class="subcard">
+          <h4>Mission Control UI</h4>
+          <p>Kubernetes & Docker–based orbital simulation app, fault injection, holographic controls.</p>
+         
+        </article>
+      </div>
+    </article>
+    
+    
+    
+  </div>
+</section>
+
+
+<script>
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+    const media = card.querySelector('.proj-media');
+    const glare = card.querySelector('.glare');
+    const layers = [media, card.querySelector('.proj-body'), card.querySelector('.proj-actions')];
+    let rect; const MAX = 10;
+    function coords(e){ rect = rect || card.getBoundingClientRect();
+      return { x:(e.clientX-rect.left)/rect.width, y:(e.clientY-rect.top)/rect.height }; }
+    function onMove(e){
+      const {x,y}=coords(e);
+      const rx=(y-.5)*-2*MAX, ry=(x-.5)*2*MAX;
+      card.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg)`;
+      layers.forEach(layer=>{ if(!layer) return; const z=parseFloat(getComputedStyle(layer).getPropertyValue('--z'))||0;
+        layer.style.transform=`translateZ(${z}px) translate(${(x-.5)*-z/12}px, ${(y-.5)*-z/12}px)`; });
+      if(glare){ glare.style.setProperty('--mx',`${x*100}%`); glare.style.setProperty('--my',`${y*100}%`); }
+    }
+    function onEnter(){ rect=card.getBoundingClientRect(); card.style.transition='transform .08s'; }
+    function onLeave(){ card.style.transform=''; rect=null; layers.forEach(l=>{ if(l) l.style.transform=`translateZ(var(--z,0))`; }); }
+    card.addEventListener('pointerenter', onEnter);
+    card.addEventListener('pointermove', onMove);
+    card.addEventListener('pointerleave', onLeave);
+  });
+
+  const modal=document.getElementById('demo-modal');
+  const content=modal.querySelector('.demo-content');
+  modal.querySelector('.close').addEventListener('click', closeDemo);
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeDemo(); });
+  document.addEventListener('click', e=>{
+    const btn=e.target.closest('[data-demo]');
+    if(btn){ try{ openDemo(JSON.parse(btn.dataset.demo)); }catch{} }
+    if(e.target===modal) closeDemo();
+  });
+  function openDemo(cfg){
+    content.innerHTML='';
+    if(cfg.type==='video'){ const v=document.createElement('video'); v.src=cfg.src; v.controls=true; v.autoplay=true; v.playsInline=true; content.appendChild(v); }
+    else { const f=document.createElement('iframe'); f.src=cfg.src; f.loading='lazy'; f.referrerPolicy='no-referrer';
+           f.allow='clipboard-write; fullscreen; microphone; camera; geolocation'; content.appendChild(f); }
+    modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+  }
+  function closeDemo(){ modal.setAttribute('aria-hidden','true'); content.innerHTML=''; document.body.style.overflow=''; }
+  
+
+</script>
+</body>
+</html>
